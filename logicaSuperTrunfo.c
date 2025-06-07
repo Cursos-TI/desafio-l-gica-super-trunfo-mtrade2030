@@ -4,7 +4,8 @@
 
 int main() {
 
-    int numero1 = 1, numero2 = 2,  pontoturistico1, pontoturistico2, pontosCarta1=0, pontosCarta2=0, opcao;
+    int numero1 = 1, numero2 = 2,  pontoturistico1, pontoturistico2, 
+    pontosCarta1=0, pontosCarta2=0, primeiroAtributo, segundoAtributo, resultado1, resultado2;
     unsigned long int populacao1, populacao2;
     float area1, area2, pib1, pib2;
     char pais1[50], pais2[50];
@@ -34,7 +35,7 @@ int main() {
 
     printf("País:");
     scanf(" %s", pais2);
-
+ 
     printf("População:");
     scanf("%lu", &populacao2);    
 
@@ -90,119 +91,180 @@ int main() {
     printf ("Densidade Demográfica: %.2f hab/km²\n", densidadedemografica2);
     printf ("PIB per Capita: %.2f reais\n", PIBpercapita2);
     printf ("Super poder 2: %.2lf\n", SuperPoder2);
-  
 
- // Menu de escolha
+ // Escolha do primeiro atributo a comparar
 
-    printf("\nJogo Super Trunfo\n\n");
-
-    printf("Escolha o atributo para Comparar:\n");
-    printf("1. Populaçao\n");
+    printf("\nBem vindo ao jogo!\n");
+    printf("Escolha o primeiro atributo:\n");
+    printf("1. População\n");
     printf("2. Área\n");
-    printf("3. PIB\n");
-    printf("4. Número de pontos turisticos\n");
-    printf("5. Densidade Demográfica\n");
-    printf("6. PIB per capita\n");
-    printf("Escolha: ");
-    scanf ("%d", &opcao);
+    printf("3. Pib\n");
+    printf("4. Número de Pontos Turísticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. PIB per Capita\n");
+    printf("7. Super poder\n");
 
-    switch (opcao)
+    // Escolha do segundo atributo a comparar
+
+    printf("Escolha o atributo a comparar: \n");
+    scanf (" %d", &primeiroAtributo);
+
+    printf("\nEscolha o segundo atributo:\n");
+    (primeiroAtributo == 1) ? 0 : printf ("1. População1\n");
+    primeiroAtributo==2?0 :printf("2. Área\n");
+    primeiroAtributo==3?0 :printf("3. Pib\n");
+    primeiroAtributo==4?0 :printf("4. Número de Pontos Turísticos\n");
+    primeiroAtributo==5?0 :printf("5. Densidade Populacional\n");
+    primeiroAtributo==6?0 :printf("6. PIB per Capita\n");
+    primeiroAtributo==7?0 :printf("7. Super poder\n");
+
+
+    printf("Escolha o segundo atributo a comparar: \n");
+    scanf (" %d", &segundoAtributo);
+    if (primeiroAtributo == segundoAtributo)
     {
- //compara populacao
+        printf("Você escolheu o mesmo atriburo!");            
+    }
+    else
+    {
+
+        switch (primeiroAtributo)
+        {
         case 1:
-        printf("Você escolheu para comparar a população\n");
-        printf ("Carta 1 -  %s : %lu \n", pais1, populacao1);
-        printf ("Carta 2 -  %s : %lu \n", pais2, populacao2);        
-    if (populacao1 == populacao2)
-    {
-        printf("### Empate! ###\n");
-    } else if ( populacao1 > populacao2)
-    {
-        printf ("### Carta 1 venceu!!\n");
-    } else {
-        printf("### Carta 2 venceu!!\n");
-    }
+            printf("%s x %s\n\n",pais1,pais2);
+            printf("Você escolheu para comparar a população\n");
+            printf ("%s a população é de: %lu \n", pais1, populacao1);
+            printf ("%s a população é de:: %lu \n", pais2, populacao2);
+            resultado1 = populacao1>populacao2? 1 : 0; 
+            resultado1 = populacao1 == populacao2? 10 : resultado1;      
         break;
- //compara área        
-    case 2:
-        printf("Você escolheu para comparar a área\n");
-        printf ("Carta 1 -  %s : %.2fkm² \n", pais1 ,area1);
-        printf ("Carta 2 -  %s : %.2fkm² \n", pais2, area2);        
-    if (area1 == area2)
-    {
-        printf("### Empate! ###\n");
-    } else if ( area1 > area2)
-    {
-        printf ("### Carta 1 venceu!!\n");
-    } else {
-        printf("### Carta 2 venceu!!\n");
-    }        
+        case 2: 
+            printf("%s x %s\n\n",pais1,pais2);
+            printf("Você escolheu para comparar a área\n");
+            printf ("Área do %s é de:  %.2fkm² \n", pais1 ,area1);
+            printf ("Área do %s é de:  %.2fkm²  \n", pais2, area2);             
+            resultado1 = area1>area2? 1 : 0;
+            resultado1 = area1 == area2? 10 : resultado1;       
         break;
- //comparar o PIB       
-    case 3:
-        printf("Você escolheu para comparar o PIB\n");
-        printf ("Carta 1 -  %s : %.2f bilhões de reais \n", pais1, pib1);
-        printf ("Carta 2 -  %s : %.2f bilhões de reais \n", pais2, pib2);       
-    if (pib1 == pib2)
-    {
-        printf("### Empate! ###\n");
-    } else if ( pib1 > pib2)
-    {
-        printf ("### Carta 1 venceu!!\n");
-    } else {
-        printf("### Carta 2 venceu!!\n");
-    }
+        case 3:
+            printf("%s x %s\n\n",pais1,pais2);
+            printf("Você escolheu para comparar PIB\n");
+            printf (" %s o PIB é de : %.2f bilhões de reais \n", pais1, pib1);
+            printf (" %s o PIB é de : %.2f bilhões de reais \n", pais2, pib2);             
+            resultado1 = pib1>pib2? 1 : 0;       
+            resultado1 = pib1 == pib2? 10 : resultado1;
         break;
- //comparar os pontos turisticos   
-    case 4:
-        printf("Você escolheu para comparar o Número de pontos turisticos\n");
-        printf ("Carta 1 -  %s : %d \n", pais1, pontoturistico1);
-        printf ("Carta 2 -  %s : %d \n", pais2, pontoturistico2);        
-    if (pontoturistico1 == pontoturistico2)
-    {
-        printf("### Empate! ###\n");
-    } else if ( pontoturistico1 > pontoturistico2)
-    {
-        printf ("### Carta 1 venceu!!\n");
-    } else {
-        printf("### Carta 2 venceu!!\n");
-    }
+        case 4:
+            printf("%s x %s\n\n",pais1,pais2);
+            printf (" %s tem  %d pontos turísticos \n", pais1, pontoturistico1);
+            printf (" %s tem  %d pontos turísticos \n", pais2, pontoturistico2); 
+            printf("Você escolheu para comparar os pontos turísticos\n");
+            resultado1 = pontoturistico1>pontoturistico2? 1 : 0;   
+            resultado1 = pontoturistico1 == pontoturistico2? 10 : resultado1;    
         break;
- // comparar a densidade demografica   
-    case 5:
-        printf("Você escolheu para comparar o Densidade Demográfica\n");
-        printf ("Carta 1 -  %s : %.2f hab/km² \n", pais1, densidadedemografica1);
-        printf ("Carta 2 -  %s : %.2f hab/km² \n", pais2, densidadedemografica2);        
-    if (densidadedemografica1 == densidadedemografica2)
-    {
-        printf("### Empate! ###\n");
-    } else if ( densidadedemografica2 > densidadedemografica1)
-    {
-        printf ("### Carta 1 venceu!!\n");
-    } else {
-        printf("### Carta 2 venceu!!\n");
-    }
+        case 5:
+            printf("%s x %s\n\n",pais1,pais2);
+            printf("Você escolheu para comparar a densidade demográfica\n");
+            printf ("%s  - a densidade demográfica é de %.2f hab/km² \n", pais1, densidadedemografica1);
+            printf ("%s  - a densidade demográfica é de %.2f hab/km² \n", pais2, densidadedemografica2);
+            resultado1 = densidadedemografica1<densidadedemografica2? 1 : 0;
+            resultado1 = densidadedemografica1 == densidadedemografica2? 10 : resultado1;       
         break;
- // comparar a renda per capita
-    case 6:
-        printf("Você escolheu para comparar o PIB per capita\n");
-        printf ("Carta 1 -  %s : %.2f reais \n", pais1, PIBpercapita1);
-        printf ("Carta 2 -  %s : %.2f reais \n", pais2, PIBpercapita2);        
-    if (PIBpercapita1 == PIBpercapita2)
-    {
-        printf("### Empate! ###\n");
-    } else if ( PIBpercapita1 > PIBpercapita2)
-    {
-        printf ("### Carta 1 venceu!!\n");
-    } else {
-        printf("### Carta 2 venceu!!\n");
-    }
+        case 6:
+            printf("%s x %s\n\n",pais1,pais2);
+            printf (" %s o PIB percapita é de: %.2f reais \n", pais1, PIBpercapita1);
+            printf (" %s o PIB percapita é de: %.2f reais \n", pais2, PIBpercapita2);
+            printf("Você escolheu para comparar o PIB percapita\n");
+            resultado1 = PIBpercapita1>PIBpercapita2? 1 : 0;       
+            resultado1 = PIBpercapita1 == PIBpercapita2? 10 : resultado1;
         break;
+        case 7:
+            printf("%s x %s\n\n",pais1,pais2);
+            printf("Você escolheu para comparar o super poder\n");
+            printf (" %s tem um super poder de: %.2f  \n", pais1, SuperPoder1);
+            printf (" %s tem um super poder de: %.2f  \n", pais2, SuperPoder2);
+            resultado1 = SuperPoder1>SuperPoder2? 1 : 0;       
+            resultado1 = SuperPoder1 == SuperPoder2? 10 : resultado1;
+        break;
+        default:
+            printf("Opção de jogo invalida - \n");
+        break;
+        }
 
-    default:
-        printf("Opção invalida - ");
-        break;
-    }
 
-    return 0;
+        switch (segundoAtributo)
+        {
+        case 1:
+            printf("Você escolheu para comparar a população\n");
+            printf ("%s a população é de: %lu \n", pais1, populacao1);
+            printf ("%s a população é de:: %lu \n", pais2, populacao2);
+            resultado2 = populacao1>populacao2? 1 : 0;   
+            resultado2 = populacao1 == populacao2? 10 : resultado2;    
+        break;
+        case 2: 
+            printf("Você escolheu para comparar a área\n");
+            printf ("Área do %s é de:  %.2fkm² \n", pais1 ,area1);
+            printf ("Área do %s é de:  %.2fkm²  \n", pais2, area2);             
+            resultado2 = area1>area2? 1 : 0;    
+            resultado2 = area1 == area2? 10 : resultado2;   
+        break;
+        case 3:
+            printf("Você escolheu para comparar PIB\n");
+            printf (" %s o PIB é de : %.2f bilhões de reais \n", pais1, pib1);
+            printf (" %s o PIB é de : %.2f bilhões de reais \n", pais2, pib2);             
+            resultado2 = pib1>pib2? 1 : 0;   
+            resultado2 = pib1 == pib2? 10 : resultado2;    
+        break;
+        case 4:
+            printf("%s x %s\n",pais1,pais2);
+            printf (" %s tem  %d pontos turísticos \n", pais1, pontoturistico1);
+            printf (" %s tem  %d pontos turísticos \n", pais2, pontoturistico2); 
+            printf("Você escolheu para comparar os pontos turísticos\n");
+            resultado2 = pontoturistico1>pontoturistico2? 1 : 0;   
+            resultado2 = pontoturistico1 == pontoturistico2? 10 : resultado2;    
+        break;
+        case 5:
+            printf("Você escolheu para comparar a densidade demográfica\n");
+            printf ("%s  - a densidade demográfica é de %.2f hab/km² \n", pais1, densidadedemografica1);
+            printf ("%s  - a densidade demográfica é de %.2f hab/km² \n", pais2, densidadedemografica2);
+            resultado2 = densidadedemografica1<densidadedemografica2? 1 : 0;   
+            resultado2 = densidadedemografica1 == densidadedemografica2? 10 : resultado2;     
+        break;
+        case 6:
+            printf (" %s o PIB percapita é de: %.2f reais \n", pais1, PIBpercapita1);
+            printf (" %s o PIB percapita é de: %.2f reais \n", pais2, PIBpercapita2);
+            printf("Você escolheu para comparar o PIB percapita\n");
+            resultado2 = PIBpercapita1>PIBpercapita2? 1 : 0;    
+            resultado2 = PIBpercapita1 == PIBpercapita2? 10 : resultado2;   
+        break;
+        case 7:
+            printf("Você escolheu para comparar o super poder\n");
+            printf (" %s tem um super poder de: %.2f  \n", pais1, SuperPoder1);
+            printf (" %s tem um super poder de: %.2f  \n", pais2, SuperPoder2);
+            resultado2 = SuperPoder1>SuperPoder2? 1 : 0;   
+            resultado2 = SuperPoder1 == SuperPoder2? 10 : resultado2;    
+        break;
+        default:
+            printf("Opção de jogo invalida - \n");
+        break;
+        }
+        if (resultado1 + resultado2 == 2 || resultado1 + resultado2 == 11 )
+        {
+            printf("!!! O %s ganhou !!!\n\n",pais1);
+        }
+        else if (resultado1 + resultado2 == 0 || resultado1 + resultado2 == 10)
+        {
+            printf("!!! O %s ganhou !!!\n\n,",pais2);
+        }
+        else
+        {
+            printf("Houve Empate!!!\n\n");
+        }
+    }
+printf ("resultado1 %d", resultado1);
+printf ("resultado2 %d",resultado2);
+
+
+return 0;
+
 }
